@@ -5,11 +5,18 @@ import Pokemon from './Pokemon';
 const PokemonList = () => {
     const [pokemonList,setPokemonList] = useState([]);
     const [isLoading,setIsLoading] = useState(false);
+    const [pokedexUrl,setPokedexUrl] = useState("https://pokeapi.co/api/v2/pokemon");
+    const [nextUrl,setNextUrl] = useState('');
+    const [prevUrl,setPrevUrl] = useState('');
 
     async function dowmloadPokemons(){
         setIsLoading(true);
-        const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
+        const response = await axios.get(pokedexUrl);
         const pokemonResults = response.data.results;
+
+        setNextUrl(response.data.next);
+        setPrevUrl(response.data.previous);
+
         const pokemonResultPromise = pokemonResults.map((pokemon) => axios.get(pokemon.url));
         const pokemonData = await axios.all(pokemonResultPromise);
         console.log(pokemonData);
@@ -27,7 +34,7 @@ const PokemonList = () => {
     }
     useEffect(() => {
         dowmloadPokemons();
-    },[]);
+    },[pokedexUrl]);
 
   return (
     
@@ -40,8 +47,8 @@ const PokemonList = () => {
             }
         </div>
         <div className='mx-auto flex gap-x-5'>
-            <button className='outline p-[0.5rem] bg-red-400 hover:bg-red-500 hover:text-cyan-300 hover:outline transition-all duration-300'>Prev</button>
-            <button className='outline p-[0.5rem] bg-red-400 hover:bg-red-500 hover:text-cyan-300 hover:outline transition-all duration-300'>Next</button>
+            <button disabled={prevUrl === undefined} onClick={() => setPokedexUrl(prevUrl)} className='outline p-[0.5rem] bg-red-400 hover:bg-red-500 hover:text-cyan-300 hover:outline transition-all duration-300'>Prev</button>
+            <button disabled={nextUrl === undefined} onClick={() => setPokedexUrl(nextUrl)} className='outline p-[0.5rem] bg-red-400 hover:bg-red-500 hover:text-cyan-300 hover:outline transition-all duration-300'>Next</button>
         </div>
     </div>
   )
