@@ -31,12 +31,18 @@ const PokemonList = () => {
 
   return (
     
-    <div className='mx-auto mt-[50px] flex flex-col gap-y-5'>
-        <div>List of Pokemons</div>
-        {
-            isLoading ? <Spinner/> : 
-            pokemonList.map((pokemon) => <Pokemon name = {pokemon.name} image = {pokemon.image} key = {pokemon.id}/>)
-        }
+    <div className='mx-auto mt-[50px] flex flex-col gap-y-5 '>
+        <div className='text-yellow-300'>List of Pokemons</div>
+        <div className='flex flex-wrap justify-between'>
+            {
+                isLoading ? <Spinner/> : 
+                pokemonList.map((pokemon) => <Pokemon name = {pokemon.name} image = {pokemon.image} key = {pokemon.id}/>)
+            }
+        </div>
+        <div className='mx-auto flex gap-x-5'>
+            <button className='outline p-[0.5rem] bg-red-400 hover:bg-red-500 hover:text-cyan-300 hover:outline transition-all duration-300'>Prev</button>
+            <button className='outline p-[0.5rem] bg-red-400 hover:bg-red-500 hover:text-cyan-300 hover:outline transition-all duration-300'>Next</button>
+        </div>
     </div>
   )
 }

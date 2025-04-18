@@ -1,0 +1,55 @@
+/* Define custom property at top level (NOT inside a class) */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+  
+  .pokeclass {
+    
+    /* Border size variable */
+    --border-size: 0.5rem;
+    --angle: 0deg;
+  
+    /* Border style */
+    border: var(--border-size) solid transparent;
+  
+    /* Create two layered backgrounds */
+    /* background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.5), rgb(255 255 255 / 0.5)),
+      conic-gradient(
+        from 45deg,
+        #d53e33 0deg 90deg,
+        #fbb300 90deg 180deg,
+        #377af5 180deg 270deg,
+        #399953 270deg 360deg
+      ); */
+      
+  
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  
+    /* Paint animated border using border-image */
+    border-image: conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    ) 1;
+  
+    /* Add the rotation animation */
+    animation: rotate 5s linear infinite;
+  }
+
+.pokeclass:hover{
+    background: url("./assets/pokemon-pokeball-legue-logo-png_seeklogo-524672.png");
+    color: red;
+    transform: scale(1.2); 
+}
