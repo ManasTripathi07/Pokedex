@@ -3,3 +3,13 @@
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: 5px;
 } */
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+.pokedexx{
+    
+
+    font-family: 'Pokemon Solid', sans-serif;
+    letter-spacing: 10px;
+    background-color: #800080;
+    /* color: yellow; */
+
+}

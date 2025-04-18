@@ -5,10 +5,4 @@
     color: white;
 } */
 
-@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
-body{
-    font-family: 'Pokemon Solid', sans-serif;
-    letter-spacing: 10px;
-   
-    /* color: yellow; */
-}
+/* @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
