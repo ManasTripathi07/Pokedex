@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.41ae39f1.css",
+    "main.js": "/static/js/main.b9177822.js",
+    "static/media/pokemon-pokeball-legue-logo-png_seeklogo-524672.png": "/static/media/pokemon-pokeball-legue-logo-png_seeklogo-524672.6806960202caab7799f7.png",
+    "index.html": "/index.html",
+    "main.41ae39f1.css.map": "/static/css/main.41ae39f1.css.map",
+    "main.b9177822.js.map": "/static/js/main.b9177822.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.41ae39f1.css",
+    "static/js/main.b9177822.js"
+  ]
+}
